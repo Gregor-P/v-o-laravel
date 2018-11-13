@@ -86,7 +86,7 @@ div#content{
 .post-title{
 	margin: 0 0 0 -13px;
 	font-family: "Calibri Light";
-	font-size: 2.5em;
+	font-size: 1.75em;
 	font-weight: 1;
 	display: inline;	
 }
@@ -114,6 +114,8 @@ div#content{
 	font-size: 0.9em;
 	white-space:pre-wrap; 
 	word-wrap:break-word;
+	width: 90%;
+	max-width: 560px;
 }
 
 form{
@@ -179,7 +181,6 @@ form.login.register input:focus{
 
 }
 
-
 textarea{
 	width: 100%;
 	max-width: 100%;
@@ -188,7 +189,6 @@ textarea{
 	border: 1px solid gray;
 	box-shadow: none;
 	float: left;
-	clear: both;
 	padding: 5px 0 0 5px;
 	font-family: Arial;
 	font-size: 0.9em;
@@ -213,8 +213,7 @@ input.btn:hover[value = "submit"]{
 	color: white;
 	background-color: lightgreen;
 	border-color: green;
-	padding: 5px 25px 5px 25px;
-	margin-right: -10px;
+
 }
 
 .btn.delete{
@@ -244,7 +243,7 @@ input.btn:hover[value = "submit"]{
 	text-decoration: none;
 	padding: 3px 10px 3px 10px;
 	border: 1px solid blue;
-	margin: -10px 20px 100px -10px;
+	margin: -10px 20px 0 -10px;
 	border-radius: 5px;
 	transition: background-color 0.1s;
 }
@@ -268,24 +267,36 @@ div#comment-section{
 	width: 100%;
 }
 
+#comment-form{
+	margin: 20px 0 0 0;
+	min-width: 66%;
+}
+#comment-form textarea{
+	border: 1px solid lightgray;
+}
+#comment-form textarea:focus{
+	border: 1px solid blue;
+	box-shadow: 0 0 2px blue;
+}
+
 .comment{
 	font-size: 0.9em;
 	border-bottom: 1px solid lightgray;
-	padding: 0 0 20px 10px;
-	margin: 0 0 0 -31px;
-	width: 66%;
+	padding: 0 0 20px 15px;
+	margin: 0 0 20px -31px;
+	width: 100%;
 }
-
 .com-del{
 	float: right;
 }
-
 .com-content{
 	font-family: arial;
 	margin-bottom: 10px;
-	margin-left: -4px;
+	margin-left: 0px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	width: 85%;
 }
-
 .com-usr-time{
 	color: gray;
 }
@@ -299,22 +310,34 @@ div#comment-section{
 	float: right;
 	margin-top: -16px;
 }
+.replyToggle form textarea{
+	height: 50px;
+	width: 75%;
+	float: left;
+}
+.replyToggle, .replyToggle form{
+	width: 500px;
+}
+.replyToggle form input{
+	float: right;
+	margin: 0;
+}
 
 .reply{
 	border-left: 2px solid blue;
 	padding: 1px 1px 1px 3px;
-	margin: 8px 0 0 20px;
+	margin: 5px 0 0 20px;
 	color: #333;
 	display: block;
 	white-space: unset;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    max-width: 40em;
 }
 /*this overwrites some of the above CSS 
  *so it should be left at the bottom
  */
-@media(max-width: 900px){
+@media(max-width: 1000px){
 	div#content, #body{
 		margin: 0 auto;
 		padding: 80px 10px 0 10px;

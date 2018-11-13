@@ -6,7 +6,7 @@
 	<a href="/posts" class="btn"> back </a>
 	<br/><br/>
 	
-	<p ><span class="post-title">{{$post->title}} </span> {{ $username}}, <small> {{$post->created_at}}</small></p>
+	<p ><span class="post-title">{{$post->title}} </span> <a href="">{{ $username}}</a>, <small> {{$post->created_at}}</small></p>
 	<pre class="post-body">
 	{{$post->body}}
 	</pre>

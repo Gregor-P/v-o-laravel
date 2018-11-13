@@ -74,7 +74,6 @@
 				</ul>
 			</div>
 		</nav>
-
 		<nav id="body"> 
 			<div id="content">
 				@yield('content')

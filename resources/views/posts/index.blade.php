@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 @section('content')
-<a href="/posts/create" class="btn" style="float: right;"> make post </a>
-
+<a href="/posts/create" class="btn" style="float: left; clear: both;"> make post </a>
+<br/>
 
 @if(count($posts) >= 1)
 	@foreach($posts as $post)
 
-		<div class="well">
+		<div class="well" >
 			<?php 
 			/*
 				//$user_id = $post->user_id;
@@ -32,10 +32,10 @@
 			
 				<div class="post-preview"> 
 					{{$post->body}}
-
-					<span class="commentCount">
+					<br/>
+					<i><span style="float: right">
 						replies: {{ DB::table('comments')->where('post_id', $post->id)->count()}}
-					</span>
+					</span></i>
 				</div>
 			</p>
 		

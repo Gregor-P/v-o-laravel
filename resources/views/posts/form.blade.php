@@ -1,6 +1,6 @@
 
 @auth
-{!! Form::open(['action' => 'CommentsController@store']) !!}
+{!! Form::open(['action' => 'CommentsController@store', 'id' => 'comment-form']) !!}
 	{{ Form::hidden('user_id', Auth::user()->id)}}
 	{{ Form::hidden('post_id', $post_id)}}
 	{{ Form::hidden('parent_id', $parent_id)}}

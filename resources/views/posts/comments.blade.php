@@ -26,13 +26,13 @@
 		  	<p class="com-usr-time"> {{ $username . ' , ' . $comment->created_at }}</p>
 		  	
 		  	<button value="{{ $comment->id}}" class="reply-btn" onclick="clickBtn(event)"> reply </button>
-		  	<div class="replyToggle" id="{{ $comment->id}}" style="display: none;">
-		  		@include('posts.form', ['parent_id' => $comment->id, 'post_id' => $post_id])
-			</div>
 
 			@foreach($replies as $reply)
 		    	<span class="reply"> {{$reply->content}} <p style="float: right"> -{{  App\User::find($reply->user_id)->name}}</p></span>
 		    @endforeach
+			<div class="replyToggle" id="{{ $comment->id}}" style="display: none;">
+		  		@include('posts.form', ['parent_id' => $comment->id, 'post_id' => $post_id])
+			</div>
 		</div>
 	@endforeach
 
