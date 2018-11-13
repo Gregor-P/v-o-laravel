@@ -1,0 +1,330 @@
+html{
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body{
+	margin: 0;
+	background-color: #efefef;
+	font-family: "Segoe UI Semilight";
+	font-size: 1em;
+	height: 100%;
+}
+
+p{
+	margin: 0;
+}
+
+#header a{
+	margin: 0;
+	padding: 0 0 5px 0;
+	text-decoration-color: #fff;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 0 2px black;
+	transition: padding 0.2s, margin 0.2s;
+	white-space: nowrap;
+}
+#header a:hover{
+	margin: 0 -10px 0 -10px;
+	padding: 0 10px 5px 10px;
+	border-bottom: 1px solid white;
+}
+
+nav#header{
+	width: 100%;
+	height: 125px;
+	background-color: #45507d;
+	position: fixed;
+	transition: height 0.5s;
+}
+
+nav#header div{
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+p#title{
+	font-size: 2em;
+	float: left;
+	margin-top: 30px;
+	margin-left: 20px;
+	color: white;
+	transition: margin-top 0.5s;
+}
+
+ul, li{
+	display: block;
+	float: right;
+	padding: 15px 15px 0 15px;	
+	transition: margin-top 0.5s;
+}
+
+#body{
+	background-color: white;
+	width: 50vw;
+	min-width: 960px;
+	height: 100%;
+	margin: 0 auto;
+	z-index: 0;
+}
+
+div#content{
+	padding: 150px 0px 0 30px;
+	width: 66%;
+	height: 100%;
+	float: right;
+	border-left: 1px solid lightgray;
+	font-size: 0.9em;
+}
+
+.well{
+	margin-top: 20px;
+}
+
+
+.post-title{
+	margin: 0 0 0 -13px;
+	font-family: "Calibri Light";
+	font-size: 2.5em;
+	font-weight: 1;
+	display: inline;	
+}
+
+
+.post-title a{
+	text-decoration: none;
+}
+.post-title a:hover{
+	text-decoration: underline;
+}
+.post-preview{
+	height: 50px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    padding: 10px 20px 0px 20px;
+    border-bottom: 1px solid lightgray;
+	margin-left: -31px;
+}
+
+.post-body{
+	font-family: "Arial";
+	font-size: 0.9em;
+	white-space:pre-wrap; 
+	word-wrap:break-word;
+}
+
+form{
+	padding-bottom: 50px;
+	width: 90%;
+	margin-left: 10px;
+}
+
+.card-header{
+	font-size: 2.5em; 
+	text-align: center;
+	width: 75%;
+	height: 50px;
+	border: 2px solid #45507d;
+	background-color: #45507d;
+	color: white;
+	margin-left: 10px;
+	border-radius: 5px 5px 0 0;
+}
+
+form.login.register{
+	border: 2px solid #45507d;
+	text-align: center;
+	width: 75%;
+	height: 20%;
+	padding-top: 40px;
+	border-radius: 0 0 5px 5px;
+}
+
+form.login.register input.form-control{
+	width: 75%;
+	margin: 0 0 20px 0 ;
+	height: 3em;
+	padding-left: 20px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	font-family: Arial;
+	font-size: 1em;
+}
+
+form.login.register input:focus{
+	box-shadow: none;
+}
+.form-check{
+	margin-top: -10px;
+}
+.btn-primary, .btn-link{
+	font-size: 1.2em;
+	font-family: "Segoe UI Semilight";
+	background-color: #45507d;
+	border: none;
+	margin: 5px;
+	padding: 15px 15px 15px 15px;
+	text-decoration: none;
+	color: white;
+	height: 50px !important;
+	width: 75%;
+
+}
+
+.btn-primary:hover, .btn-link:hover{
+	cursor: pointer;
+
+}
+
+
+textarea{
+	width: 100%;
+	max-width: 100%;
+	height: 150px;
+	max-height: 300px;
+	border: 1px solid gray;
+	box-shadow: none;
+	float: left;
+	clear: both;
+	padding: 5px 0 0 5px;
+	font-family: Arial;
+	font-size: 0.9em;
+}
+
+input:focus{
+	border: 1px solid blue;
+	box-shadow: 0 0 2px blue;
+}
+
+input.btn{
+	color: green;
+	background-color: white;
+	border-color: green;
+	float: right;
+	margin: 10px -5px 0 0;
+	padding: 5px 20px 5px 20px;
+	transition: padding 0.1s, margin 0.1s;
+}
+
+input.btn:hover[value = "submit"]{
+	color: white;
+	background-color: lightgreen;
+	border-color: green;
+	padding: 5px 25px 5px 25px;
+	margin-right: -10px;
+}
+
+.btn.delete{
+	padding: 1px;
+	content: 'x';
+	height: 20px;
+	width: 20px;
+	border-radius: 100px;
+	margin-top: -10px;
+	float: right;
+	color: gray;
+	border: none;
+}
+.btn.delete:hover{
+	background-color: red;
+	color: white;
+}
+
+.form-delete{
+	height: 0;
+	padding: 0;
+	margin: 0;
+	width: 0;
+	float: right;
+}
+.btn{
+	text-decoration: none;
+	padding: 3px 10px 3px 10px;
+	border: 1px solid blue;
+	margin: -10px 20px 100px -10px;
+	border-radius: 5px;
+	transition: background-color 0.1s;
+}
+
+.btn:hover{
+	color: white;
+	background-color: blue;
+}
+
+#comments-label{
+	color: gray;
+	padding: 3px 3px 2px 3px;
+	background-color: lightgray;
+	border-radius: 0px 5px 0 0;
+	margin-left: -31px;
+}
+
+div#comment-section{
+	border-top: 1px solid lightgray;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.comment{
+	font-size: 0.9em;
+	border-bottom: 1px solid lightgray;
+	padding: 0 0 20px 10px;
+	margin: 0 0 0 -31px;
+	width: 66%;
+}
+
+.com-del{
+	float: right;
+}
+
+.com-content{
+	font-family: arial;
+	margin-bottom: 10px;
+	margin-left: -4px;
+}
+
+.com-usr-time{
+	color: gray;
+}
+
+.reply-btn{
+	background-color: transparent;
+	text-decoration: underline;
+	color: blue;
+	border: none;
+	cursor: pointer;
+	float: right;
+	margin-top: -16px;
+}
+
+.reply{
+	border-left: 2px solid blue;
+	padding: 1px 1px 1px 3px;
+	margin: 8px 0 0 20px;
+	color: #333;
+	display: block;
+	white-space: unset;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+/*this overwrites some of the above CSS 
+ *so it should be left at the bottom
+ */
+@media(max-width: 900px){
+	div#content, #body{
+		margin: 0 auto;
+		padding: 80px 10px 0 10px;
+		float: none;
+		border-left: none;
+		width: 90vw;
+		margin-left: 0;
+	}
+}
+
+.scrolled{
+	height: 50px !important;
+}
