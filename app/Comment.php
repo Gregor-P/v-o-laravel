@@ -15,5 +15,10 @@ class Comment extends Model
     //Timestamp
     public $timestamps = true;
 
-
+    public function users(){
+	    return $this->belongsToMany('App\User')
+	                ->using('App\CommentUser')
+	                ->withPivot('rating')
+	                ->as('ratings');
+    }
 }

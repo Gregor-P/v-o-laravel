@@ -1,17 +1,43 @@
-html{
-	height: 100%;
-	scroll-behavior: smooth;
-}
-
 body{
 	margin: 0;
+	padding: 0;
 	background-color: #efefef;
 	font-family: "Segoe UI Semilight";
 	font-size: 1em;
-	height: 100%;
+	min-height: 100%;
+}
+
+
+#body{
+	min-height: 100%;
+	width: 50vw;
+	min-width: 960px;
+	margin: 0 auto;
+}
+
+div#content{
+	padding: 150px 0px 0 30px;
+	width: 70%;
+	min-height: 100%;
+	margin: 0 auto; /*spremen u float right če bo sidebar*/
+	border-left: 1px solid lightgray;
+	font-size: 0.9em;
+	background-color: white;
+	height: 1080px;
 }
 
 p{
+	margin: 0;
+}
+
+#sidebar{
+	display: none;
+	float: right;
+	padding: 150px 0 0 0;
+	min-height: 70vw;
+	width: 25%;
+	background-color: white;
+	border-left: 1px solid lightgray;
 	margin: 0;
 }
 
@@ -19,9 +45,9 @@ p{
 	margin: 0;
 	padding: 0 0 5px 0;
 	text-decoration-color: #fff;
-	color: #fff;
-	text-decoration: none;
-	text-shadow: 0 0 2px black;
+					color: #fff;
+					text-decoration: none;
+					text-shadow: 0 0 2px black;
 	transition: padding 0.2s, margin 0.2s;
 	white-space: nowrap;
 }
@@ -58,24 +84,6 @@ ul, li{
 	float: right;
 	padding: 15px 15px 0 15px;	
 	transition: margin-top 0.5s;
-}
-
-#body{
-	background-color: white;
-	width: 50vw;
-	min-width: 960px;
-	height: 100%;
-	margin: 0 auto;
-	z-index: 0;
-}
-
-div#content{
-	padding: 150px 0px 0 30px;
-	width: 66%;
-	height: 100%;
-	float: right;
-	border-left: 1px solid lightgray;
-	font-size: 0.9em;
 }
 
 .well{
@@ -282,7 +290,7 @@ div#comment-section{
 .comment{
 	font-size: 0.9em;
 	border-bottom: 1px solid lightgray;
-	padding: 0 0 20px 15px;
+	padding: 0 15px 20px 15px;
 	margin: 0 0 20px -31px;
 	width: 100%;
 }
@@ -333,18 +341,29 @@ div#comment-section{
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 40em;
+    background-color: #f0f0f0;
 }
 /*this overwrites some of the above CSS 
  *so it should be left at the bottom
  */
-@media(max-width: 1000px){
-	div#content, #body{
-		margin: 0 auto;
-		padding: 80px 10px 0 10px;
-		float: none;
-		border-left: none;
-		width: 90vw;
-		margin-left: 0;
+@media(max-width: 900px){
+	#body{
+		min-height: 100%;
+		min-width: 99%;
+		margin-left: 20px;
+	}
+	div#content{
+		padding: 150px 0px 0 30px;
+		width: 100%;
+		min-height: 100%;
+		float: right;
+	}
+	div#sidebar{
+		display: none;
+	}
+
+	.post-body{
+		min-width: 90%;
 	}
 }
 

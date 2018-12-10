@@ -2,14 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Laravel</title>
 
 		<!-- Fonts -->
 		<link rel="stylesheet" type="text/css" href="{{url('/css/style.css')}}" /> 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{{ url('jquery-3.3.1.js')}}"></script>
 		<script type="text/javascript">
 			var doc  = $(document);
 			var scrolled = false;
@@ -65,16 +63,19 @@
 					<li><a href=""> profile </a></li>
 
 					<li><a href="/posts/create"> make post </a></li>
-					@else
+						@else
 					<li><a href="/login"> log in </a></li>
 					<li><a href="/register"> register </a></li>
-					@endauth
+						@endauth
 					<li><a href="/posts/"> posts </a></li>
-
 				</ul>
 			</div>
 		</nav>
+		
 		<nav id="body"> 
+			<div id="sidebar">
+				
+			</div>
 			<div id="content">
 				@yield('content')
 			</div>

@@ -1,29 +1,14 @@
 @extends('layouts.layout')
 @section('content')
+@auth
 <a href="/posts/create" class="btn" style="float: left; clear: both;"> make post </a>
+@endauth
 <br/>
 
 @if(count($posts) >= 1)
 	@foreach($posts as $post)
 
 		<div class="well" >
-			<?php 
-			/*
-				//$user_id = $post->user_id;
-	    		//$username = App\User::find($user_id)->name;
-						@auth
-			    @if($user_id==Auth::user()->id) <!-- add admin verification as well-->
-			    	{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'class' => 'form-delete']) !!}
-			    		{{Form::hidden('_method', 'DELETE')}}
-			    		
-			    		{{Form::hidden('post_id', $post->id)}}
-
-			    		{{Form::submit('X', ['class' => 'btn delete'])}}
-			    	{!! Form::close()!!}
- 
-		    @endauth 
-		    */
-			?>
 			<p class="post-index">
 				<span class="post-title">
 					<a href="/posts/{{$post->id}}">{{$post->title}} </a>

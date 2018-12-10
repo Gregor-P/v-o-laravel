@@ -27,6 +27,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('comments', 'CommentsController');
 
+Route::get('/comment/vote/{id}', function($id){
+	return view('posts/forms/vote')->with("comment_id", $id);
+});
+
 Route::get('/jstest', function(){
 	return view('js');
 });
