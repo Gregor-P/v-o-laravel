@@ -1,7 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	background-color: #efefef;
+	background-color: lightgray;
 	font-family: "Segoe UI Semilight";
 	font-size: 1em;
 	min-height: 100%;
@@ -13,6 +13,7 @@ body{
 	width: 50vw;
 	min-width: 960px;
 	margin: 0 auto;
+
 }
 
 div#content{
@@ -20,10 +21,10 @@ div#content{
 	width: 70%;
 	min-height: 100%;
 	margin: 0 auto; /*spremen u float right če bo sidebar*/
-	border-left: 1px solid lightgray;
 	font-size: 0.9em;
 	background-color: white;
 	height: 1080px;
+
 }
 
 p{
@@ -129,7 +130,7 @@ ul, li{
 form{
 	padding-bottom: 50px;
 	width: 90%;
-	margin-left: 10px;
+	margin: 0 auto;
 }
 
 .card-header{
@@ -140,7 +141,7 @@ form{
 	border: 2px solid #45507d;
 	background-color: #45507d;
 	color: white;
-	margin-left: 10px;
+	margin: 0 auto;
 	border-radius: 5px 5px 0 0;
 }
 
@@ -148,7 +149,7 @@ form.login.register{
 	border: 2px solid #45507d;
 	text-align: center;
 	width: 75%;
-	height: 20%;
+
 	padding-top: 40px;
 	border-radius: 0 0 5px 5px;
 }
@@ -170,18 +171,17 @@ form.login.register input:focus{
 .form-check{
 	margin-top: -10px;
 }
-.btn-primary, .btn-link{
+button.btn-primary, .btn-link{
 	font-size: 1.2em;
 	font-family: "Segoe UI Semilight";
 	background-color: #45507d;
 	border: none;
-	margin: 5px;
-	padding: 15px 15px 15px 15px;
+	margin: 20px;
+	padding: 5px;
 	text-decoration: none;
 	color: white;
-	height: 50px !important;
-	width: 75%;
-
+	height: 40px !important;
+	width: 150px;
 }
 
 .btn-primary:hover, .btn-link:hover{
@@ -210,7 +210,7 @@ input:focus{
 input.btn{
 	color: green;
 	background-color: white;
-	border-color: green;
+	border-color: lightgreen;
 	float: right;
 	margin: 10px -5px 0 0;
 	padding: 5px 20px 5px 20px;
@@ -220,7 +220,7 @@ input.btn{
 input.btn:hover[value = "submit"]{
 	color: white;
 	background-color: lightgreen;
-	border-color: green;
+	border-color: lightgreen;
 
 }
 
@@ -233,6 +233,7 @@ input.btn:hover[value = "submit"]{
 	margin-top: -10px;
 	float: right;
 	color: gray;
+	background-color: transparent;
 	border: none;
 }
 .btn.delete:hover{
@@ -247,11 +248,25 @@ input.btn:hover[value = "submit"]{
 	width: 0;
 	float: right;
 }
+input[name="title"]{
+	font-size: 12pt;
+	margin-bottom: 10px;
+	border: 0;
+	border-bottom: 1px solid gray;
+}
+input[name="title"]:focus{
+	border: 0;
+	box-shadow: none;
+}
+input[name="body"]{
+	
+}
 .btn{
 	text-decoration: none;
 	padding: 3px 10px 3px 10px;
 	border: 1px solid blue;
-	margin: -10px 20px 0 -10px;
+	float: left;
+	margin: -10px 0 0 -15px;
 	border-radius: 5px;
 	transition: background-color 0.1s;
 }
@@ -289,34 +304,38 @@ div#comment-section{
 
 .comment{
 	font-size: 0.9em;
-	border-bottom: 1px solid lightgray;
 	padding: 0 15px 20px 15px;
-	margin: 0 0 20px -31px;
-	width: 100%;
+	margin: 0 0 20px 0px;
+	width: ;
 }
+
 .com-del{
 	float: right;
 }
 .com-content{
 	font-family: arial;
-	margin-bottom: 10px;
-	margin-left: 0px;
+	margin-bottom: 5px;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	width: 85%;
 }
 .com-usr-time{
 	color: gray;
+	margin-bottom: 10px;
 }
 
 .reply-btn{
 	background-color: transparent;
-	text-decoration: underline;
-	color: blue;
+	border-radius: 3px;
 	border: none;
+	color: blue;
 	cursor: pointer;
 	float: right;
+	padding: 1px 5px 1px 5px;
 	margin-top: -16px;
+}
+.reply-btn:hover{
+	text-decoration: underline;
 }
 .replyToggle form textarea{
 	height: 50px;
@@ -334,19 +353,35 @@ div#comment-section{
 .reply{
 	border-left: 2px solid blue;
 	padding: 1px 1px 1px 3px;
-	margin: 5px 0 0 20px;
+	margin: 5px 0 0 33px;
 	color: #333;
 	display: block;
-	white-space: unset;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	word-wrap: break-word;
     max-width: 40em;
     background-color: #f0f0f0;
 }
+
+.rating-num{
+	font-family: consolas;
+	font-size: 15pt;
+	margin: 20px 20px 0 0;
+}
+
+.rating-num, .rate-up{
+	float: left;
+}
+
+.rate-up{
+	text-decoration: none;
+	margin: 0 3px 0 0;
+	background: url('./res/up.png') no-repeat transparent;
+}
+
+
 /*this overwrites some of the above CSS 
  *so it should be left at the bottom
  */
-@media(max-width: 900px){
+@media(max-width: 800px){
 	#body{
 		min-height: 100%;
 		min-width: 99%;

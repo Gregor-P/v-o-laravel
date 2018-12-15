@@ -2,6 +2,13 @@
 <div id="comment-section"> 
 
 	@foreach($comments as $comment)
+			<span class="rating-num">
+			@auth
+		  	<a class="rate-up" href="/comment/vote/{{$comment->id}}"> ^ </a>
+		  	@endauth
+		  	{{ App\CommentUser::where(['comment_id'=>$comment->id, 'rating'=>1])->count() }} 
+		  	</span>
+		  	
 		<div class="comment">
 			<?php 
 
@@ -11,7 +18,7 @@
 
 			?>
 			@auth
-			    @if($user_id==Auth::user()->id) <!-- <--this if does nothing lol--add admin verification as well-->
+			    @if($user_id==Auth::user()->id) <!-- dodaj še admin verifikacijo-->
 			    	{!! Form::open(['action' => ['CommentsController@destroy', $comment->id], 'class' => 'form-delete']) !!}
 			    		{{Form::hidden('_method', 'DELETE')}}
 			    		{{Form::hidden('comment_id', $comment->id)}}
@@ -23,15 +30,12 @@
 		  	<pre class="com-content"> {{ $comment->content }}</pre>
 		  	<p class="com-usr-time"> {{ $username . ' , ' . $comment->created_at }}</p>
 		  	
-		  	@auth
-		  	<a href="/comment/vote/{{$comment->id}}"> up </a>
-		  	@endauth
-		  	
-		  	{{ App\CommentUser::where(['comment_id'=>$comment->id, 'rating'=>1])->count() }} 
 
 
 			@foreach($replies as $reply)
-		    	<span class="reply"> {{$reply->content}} <p style="float: right"> -{{  App\User::find($reply->user_id)->name}}</p></span>
+		    	<span class="reply"> {{$reply->content}} 
+		    		<p style="float: right"> -{{  App\User::find($reply->user_id)->name}}</p>
+		    	</span>
 		    @endforeach
 
 		    @auth

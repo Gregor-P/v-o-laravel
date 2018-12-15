@@ -30,14 +30,9 @@ class CommentsController extends Controller
         ]);
         $comment_id = $request->input('comment_id');
         $comment = Comment::where(['id' => $comment_id]);
-        
-        if($comment->ratings != NULL){
-            $comment->ratings->detach();
-        }
+
         $comment->delete();
         $reply = Comment::where(['post_id' => $comment_id])->delete();
-        
-
 
         return redirect('/posts/'.$request->input('post_id'));
     }

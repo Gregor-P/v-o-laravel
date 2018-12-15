@@ -4,10 +4,15 @@
 <a href="/posts/create" class="btn" style="float: left; clear: both;"> make post </a>
 @endauth
 <br/>
-
+<form>
+	<select>
+		<option> # replies</option>
+		<option> date </option>
+		<option>  </option>
+	</select>
+</form>
 @if(count($posts) >= 1)
 	@foreach($posts as $post)
-
 		<div class="well" >
 			<p class="post-index">
 				<span class="post-title">
@@ -23,11 +28,10 @@
 					</span></i>
 				</div>
 			</p>
-		
 		</div>
 	@endforeach
 @else
-	<p>No posts found </p>
+	<i>No posts found </i>
 @endif
 @endsection
 

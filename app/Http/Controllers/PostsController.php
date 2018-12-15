@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('title', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         //$posts = DB::select('SELECT * FROM posts');
         return view('posts.index')->with('posts', $posts);
     }
@@ -62,7 +62,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $comments = Comment::where('post_id', $id)->where('is_reply', 0)->orderBy('created_at', 'desc')->get();
+        $comments = Comment::where('post_id', $id)->where('is_reply', 0)->orderBy('points', 'desc')->get();
         return view('posts.show')->with('post', $post)->with('comments', $comments);
     }
 
@@ -95,9 +95,28 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $this->validate($request, [
+            'post_id' => 'required'
+        ]);
+        $post_id = $request->input('post_id');
+        $comments = Comment::where(['post_id' => $post_id])->get();
+
+        foreach ($comments as $c){
+            $reply = Comment::where('post_id', $c->id)->get();
+
+            foreach ($reply as $r){
+                if($r->is_reply)
+                    $r->delete();
+            }
+            $c->delete();
+        }
+
+        $post = Post::where('id', $post_id);
+        $post->delete();
+        
+        return redirect('/posts');
     }
 
 }
