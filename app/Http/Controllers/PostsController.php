@@ -14,10 +14,26 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function search(Request $request){
+        $param = $request->input('param', 'desc');
+        $tags = $request->input('tags');
+        $tagsArray = explode(" ", $tags);
+
+        $posts = Post::query();
+        if($tagsArray[0] != ""){
+            foreach ($tagsArray as $t) {
+                $posts->where('tags', 'LIKE', '%'.$t.'%');
+            }
+        }
+    
+        $posts = $posts->orderBy('created_at', $param)->get();
+        return view('posts.index')->with('posts', $posts)->with('tags', $tags); 
+    }
+
+    public function index(Request $request)
     {
+
         $posts = Post::orderBy('created_at', 'desc')->get();
-        //$posts = DB::select('SELECT * FROM posts');
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -48,6 +64,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = $request->input('user_id');
+        $post->tags = $request->input('tags', ' ');
         $post->save();
 
         return redirect('/posts/'.$request->input('post_id'));

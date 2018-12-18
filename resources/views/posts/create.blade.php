@@ -11,6 +11,7 @@
 		'placeholder' => 'Write your post\'s content here...']) }}
 		<br/>
 		{{ Form::submit('submit', ['class' => 'btn']) }}
+		{{ Form::text('tags', '', ['placeholder' => 'Tags, separate with spaces', 'style' => "width: 50%"]) }}
 	{!! Form::close() !!}
 	@endauth
 @endsection

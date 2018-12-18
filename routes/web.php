@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+
 
 Route::get('/about', function () {
     return view('pages.about');
 });
-
-
+Route::get('/', 'PostsController@index');
+Route::post("/posts/search", "PostsController@search");
 
 Route::resource('posts','PostsController');
 
@@ -30,6 +30,7 @@ Route::resource('comments', 'CommentsController');
 Route::get('/comment/vote/{id}', function($id){
 	return view('posts/forms/vote')->with("comment_id", $id);
 });
+
 
 Route::get('/jstest', function(){
 	return view('js');

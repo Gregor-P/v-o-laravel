@@ -14,9 +14,6 @@
 	    @endif
     @endauth
 	<br/><br/>
-	
-
-
 
 	<p>
 		<span class="post-title">{{$post->title}} </span>
@@ -25,7 +22,12 @@
 	<pre class="post-body">
 	{{$post->body}}
 	</pre>
-	
+
+	@if($post->tags != NULL)
+		<span class="tags">
+			{{ $post->tags}}
+		</span>
+	@endif	
 
 	<br/>
 	@include('posts.comments', ['post_id' => $post->id, 'comments' => $comments])
